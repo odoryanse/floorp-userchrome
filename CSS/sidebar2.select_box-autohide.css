@@ -1,0 +1,57 @@
+:root {
+  --uc-sidebar-height: calc(100vh - var(--uc-tab-min-height, 32px));
+  --uc-sidebar-hover-width: 4px;
+  --uc-autohide-sidebar-delay: 300ms;
+}
+
+#main-window:not([extradragspace="true"]) #sidebar-select-box:not([hidden]) {
+  position: absolute;
+  z-index: 2 !important;
+  left: calc(-1 * (var(--uc-sidebar2-width, 36px) + 1px));
+  overflow: visible !important;
+  width: var(--uc-sidebar2-width, 36px) !important;
+  height: var(--uc-sidebar-height);
+  transition: left 0.04s ease-in-out var(--uc-autohide-sidebar-delay) !important;
+}
+
+#main-window #sidebar2-box ~ #sidebar-select-box {
+  z-index: 6 !important;
+}
+
+#main-window:not([extradragspace="true"]) #sidebar-select-box:not([hidden]):after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: calc(-1 * (var(--uc-sidebar-hover-width) + 1px));
+  width: var(--uc-sidebar-hover-width);
+  height: 100%;
+  background: transparent !important;
+}
+
+#main-window[sizemode="normal"]:not([extradragspace="true"]) #sidebar-select-box:not([hidden]):after {
+  right: calc(-1 * (var(--uc-sidebar-hover-width) + 9px));
+  width: calc(var(--uc-sidebar-hover-width) + 8px);
+}
+
+#main-window:not([extradragspace="true"])
+  #navigator-toolbox-background:has(> #navigator-toolbox > #titlebar > #toolbar-menubar:not([inactive="true"]))
+  ~ #browser > #sidebar-select-box 
+{
+  height: calc(var(--uc-sidebar-height) - var(--uc-menubar-autohide-height, 25px)) !important;
+}
+
+#main-window:not([extradragspace="true"])
+  #navigator-toolbox-background:has(> #navigator-toolbox > #titlebar > #toolbar-menubar[autohide="false"])
+  ~ #browser > #sidebar-select-box 
+{
+  height: calc(var(--uc-sidebar-height) - var(--uc-menubar-height, 28px)) !important;
+}
+
+#main-window:not([extradragspace="true"]) 
+#sidebar-select-box:not([hidden]):hover {
+  left: 0 !important;
+}
+
+#sidebar2-box {
+  border-width: 0 !important;
+}

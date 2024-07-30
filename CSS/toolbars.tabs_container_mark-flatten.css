@@ -1,0 +1,11 @@
+.tabbrowser-tab[visuallyselected]:not([pinned]) .tab-content::before,
+.tab-content::before {
+  top: calc(50% + 11px) !important;
+  left: calc(var(--inline-tab-padding) + 4px) !important;
+  opacity: 0.75;
+  transform: none !important;
+  width: 8px !important;
+  height: 2px;
+  background: var(--identity-icon-color);
+  border: none !important;
+}

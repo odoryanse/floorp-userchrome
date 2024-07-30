@@ -1,0 +1,78 @@
+#browser {
+  --uc-sidebar2-hover-color: color-mix(in srgb, var(--lwt-text-color) 12%, transparent);
+  --uc-sidebar2-checked-color: color-mix(in srgb, var(--lwt-text-color) 24%, transparent);
+  --uc-sidebar2-separator-color: color-mix(in srgb, var(--lwt-text-color) 28%, transparent);
+  --uc-sidebar2-splitter-color: color-mix(in srgb, var(--lwt-text-color) 8%, transparent);
+  --uc-sidebar2-width: 36px;
+}
+
+#main-window[BSM-window="true"] #navigator-toolbox {
+  border-bottom: 0 !important;
+}
+
+#workspacesCreateNewWorkspaceButton {
+  max-height: var(--uc-sidebar2-width) !important;
+}
+
+#sidebar2-header {
+  border-bottom: 1px solid var(--uc-sidebar2-separator-color);
+}
+
+#sidebar2-header > .sidebar2-icon {
+  aspect-ratio: 1 / 1;
+  width: unset !important;
+  height: 100% !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+#sidebar2-header > .sidebar2-icon > .toolbarbutton-text {
+  display: none !important;
+}
+
+#sidebar2-header > .sidebar2-icon:hover {
+  box-shadow: none !important;
+  background: var(--uc-sidebar2-hover-color) !important;
+}
+
+#sidebar-select-box {
+  box-sizing: content-box;
+  width: var(--uc-sidebar2-width) !important;
+  min-width: var(--uc-sidebar2-width) !important;
+  max-width: var(--uc-sidebar2-width) !important;
+  background: white !important;
+  border-right: 1px solid var(--uc-sidebar2-separator-color) !important;
+  border-left: none !important;
+}
+
+#sidebar-select-box #panelBox, #sidebar-select-box #bottomButtonBox {
+  align-items: center;
+  width: 100% !important;
+}
+
+#sidebar-select-box .sidepanel-icon, 
+#sidebar-select-box .sidepanel-browser-icon {
+  box-shadow: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0px !important;
+  border-radius: 0px !important;
+}
+
+#sidebar-select-box .sidepanel-icon:hover,
+#sidebar-select-box .sidepanel-browser-icon:hover {
+  background: var(--uc-sidebar2-hover-color) !important;
+}
+
+#sidebar-select-box .sidepanel-icon[checked="true"] {
+  background: var(--uc-sidebar2-checked-color) !important;
+}
+
+#sidebar2-box {
+  box-shadow: inset -1px 0 0 var(--uc-sidebar2-separator-color) !important;
+  border: none !important;
+}
+
+#sidebar2-box .webpanels  {
+  margin-right: 1px;
+}

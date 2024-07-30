@@ -1,0 +1,133 @@
+#navigator-toolbox-background {
+  --uc-menubar-autohide-height: 25px;
+  --uc-menubar-height: 28px;
+  --uc-tabs-height: var(--uc-tab-min-height, 32px);
+  --uc-navbar-height: var(--uc-navbar-min-height, 32px);
+  --uc-bm-height: var(--uc-bookmark-min-height, 32px);
+  --uc-autohide-toolbar-delay: 300ms;
+}
+
+#main-window[sizemode="normal"] #navigator-toolbox-background {
+  --uc-tabs-height: calc(var(--uc-tab-min-height, 32px) + 1px);
+}
+
+/* Hidden */
+#titlebar {
+  position: relative;
+  z-index: 4 !important;
+  background-position: top right;
+}
+
+#main-window[windowtype="navigator:browser"] > body > #navigator-toolbox-background {
+  height: auto !important;
+}
+
+#nav-bar {
+  box-shadow: none !important;
+  position: absolute !important;
+  z-index: 3 !important;
+  top: calc(-1 * var(--uc-navbar-height));
+  bottom: 0 !important;
+  opacity: 0;
+  box-sizing: content-box !important;
+  width: 100vw;
+  min-height: var(--uc-navbar-height) !important;
+  transition: top 136ms ease-in-out var(--uc-autohide-toolbar-delay), opacity 136ms ease-in-out calc(var(--uc-autohide-toolbar-delay) - 40ms) !important;
+  background-position: top calc(-1 * (var(--uc-tabs-height) + 1px)) right;
+  border-bottom: 1px solid transparent;
+}
+#nav-bar[tabs-hidden="true"] {
+  background-position: top right;
+}
+#nav-bar:has(+ #PersonalToolbar[collapsed="true"]) {
+  border-bottom-color: var(--uc-separator-color);
+}
+#nav-bar:has(#urlbar[breakout-extend="true"]) {
+  z-index: 5 !important;
+}
+#PersonalToolbar {
+  position: absolute !important;
+  z-index: 2 !important;
+  top: calc(-1 * (var(--uc-bm-height)));
+  opacity: 0;
+  width: 100vw;
+  min-height: var(--uc-bm-height) !important;
+  transition: top 160ms ease-in-out var(--uc-autohide-toolbar-delay), opacity 160ms ease-in-out calc(var(--uc-autohide-toolbar-delay) - 40ms) !important;
+  background-position: top calc(-1 * (var(--uc-tabs-height) + 1px) + -1 * (var(--uc-navbar-height))) right;
+  border-bottom: 1px solid var(--uc-separator-color);
+}
+
+#titlebar,
+#nav-bar,
+#PersonalToolbar{
+  background-image: var(--lwt-additional-images) !important;
+}
+
+/* Show */
+#navigator-toolbox:hover > #nav-bar,
+#navigator-toolbox > #nav-bar:focus-within,
+#navigator-toolbox > #nav-bar[tabs-hidden="true"] {
+  top: calc(var(--uc-tabs-height) + 1px) !important;
+  opacity: 1;
+  transition: top 114ms ease-in-out 36ms, opacity 100ms ease-in-out 36ms !important;
+}
+#navigator-toolbox:hover > #PersonalToolbar,
+#nav-bar:focus-within + #PersonalToolbar {
+  top: calc(var(--uc-tabs-height) + 1px + var(--uc-navbar-height)) !important;
+  opacity: 1;
+  transition: top 160ms ease-in-out 0ms, opacity 100ms ease-in-out 0ms !important;
+}
+
+/* Keep showing the tabs and bookmarks bar while hovering over the context menu or panel is open */
+/* has() CSS is bugging */
+#mainPopupSet:has(> :is(menupopup:hover, panel[panelopen="true"])) ~ #navigator-toolbox-background #nav-bar {
+  top: calc(var(--uc-tabs-height) + 1px) !important;
+  opacity: 1;
+  transition: top 114ms ease-in-out 36ms, opacity 100ms ease-in-out 36ms !important;
+}
+#mainPopupSet:has(> :is(menupopup:hover, panel[panelopen="true"])) ~ #navigator-toolbox-background #PersonalToolbar{
+  top: calc(var(--uc-tabs-height) + 1px + var(--uc-navbar-height)) !important;
+  opacity: 1;
+  transition: top 160ms ease-in-out 0ms, opacity 100ms ease-in-out 0ms !important;
+}
+
+/* Menubar fix */
+#titlebar:has(> #toolbar-menubar:not([inactive="true"])) ~ #nav-bar {
+  top: calc(var(--uc-menubar-autohide-height) + var(--uc-tabs-height) + 1px) !important;
+  background-position: top calc(-1 * (var(--uc-menubar-autohide-height) + var(--uc-tabs-height) + 1px)) right;
+}
+
+#titlebar:has(> #toolbar-menubar:not([inactive="true"])) ~ #PersonalToolbar {
+  top: calc(var(--uc-menubar-autohide-height) + var(--uc-tabs-height) + 1px + var(--uc-navbar-height)) !important;
+  background-position: top calc(-1 * (var(--uc-menubar-autohide-height) + var(--uc-tabs-height) + 1px + var(--uc-navbar-height))) right;
+}
+
+#titlebar:has(> #toolbar-menubar[autohide="false"]) ~ #nav-bar {
+  top: calc(var(--uc-menubar-height) + var(--uc-tabs-height) + 1px) !important;
+  background-position: top calc(-1 * (var(--uc-menubar-height) + var(--uc-tabs-height) + 1px)) right;
+}
+
+#titlebar:has(> #toolbar-menubar[autohide="false"]) ~ #PersonalToolbar {
+  top: calc(var(--uc-menubar-height) + var(--uc-tabs-height) + 1px + var(--uc-navbar-height)) !important;
+  background-position: top calc(-1 * (var(--uc-menubar-height) + var(--uc-tabs-height) + 1px + var(--uc-navbar-height))) right;
+}
+
+/* Customizing mode */
+#navigator-toolbox:has(> #nav-bar[customizing="true"]) {
+  height: unset !important;
+}
+#nav-bar[customizing="true"], 
+#PersonalToolbar[customizing="true"] {
+  position: static !important;
+  opacity: 1 !important;
+}
+
+.notificationbox-stack.global-notificationbox {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+#navigator-toolbox:hover > .notificationbox-stack.global-notificationbox {
+  top: calc(var(--uc-navbar-height) + var(--uc-bm-height)) !important;
+}

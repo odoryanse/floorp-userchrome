@@ -1,0 +1,10 @@
+#sidebar-splitter2 {
+  position: relative;
+  z-index: 2 !important;
+  left: 2px;
+  width: 4px;
+  min-width: 4px !important;
+  margin-left: -4px;
+  background: transparent !important;
+  border: none !important;
+}

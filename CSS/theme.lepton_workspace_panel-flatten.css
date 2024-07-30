@@ -1,0 +1,101 @@
+#workspacesToolbarButtonPanel {
+  --panel-padding: 0 !important;
+  margin-top: calc(-1 * (var(--panel-shadow-margin, 45px) - var(--uc-tab-min-height)/2)) !important;
+  margin-left: calc(-1 * (var(--panel-shadow-margin, 45px) - var(--uc-sidebar2-width, var(--uc-tab-min-height))) + 8px) !important;
+}
+
+#workspacesPopupContent {
+  scroll-snap-type: y mandatory;
+  position: static;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  width: fit-content !important;
+  min-width: 240px;
+  max-height: 450px !important;
+  padding: 0 !important;
+  border-top: 104px solid white !important;
+}
+
+#workspacesPopupContent:has(.workspaceButton:only-child) {
+  border-top: 64px solid white !important;
+}
+
+#workspacesPopupContent > .workspaceButton {
+  scroll-snap-align: start;
+  min-height: unset !important;
+  margin: 0 !important;
+  padding: 1px 8px !important;
+  border-radius: 0 !important;
+}
+
+#workspacesPopupContent > .workspaceButton:hover,
+#workspacesPopupContent > .workspaceButton[selected="true"]:hover {
+  background-color: var(--uc-hover-color) !important;
+}
+
+#workspacesPopupContent > .workspaceButton[selected="true"] {
+  box-shadow: none !important;
+  order: 0;
+  position: absolute;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 36px 0 0 !important;
+  background-color: transparent !important;
+}
+
+#workspacesPopupContent > toolbarbutton[selected="true"]:before {
+  content: 'Current Windows';
+  display: block;
+  position: absolute;
+  top: -32px;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+#workspacesPopupContent > .workspaceButton:not([selected=true]):first-of-type:before, 
+#workspacesPopupContent > .workspaceButton[selected=true] ~ .workspaceButton:nth-child(2):before {
+  content: 'Other Workspaces';
+  display: block;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 12px;
+  border-top: 1px solid var(--uc-separator-color);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+#workspacesPopupContent > .workspaceButton {
+  order: 1;
+}
+
+#workspacesPopupFooter {
+  padding-bottom: 8px;
+}
+
+#workspacesPopupFooter > #workspacesCreateNewWorkspaceButton {
+  padding: 1px 8px !important;
+}
+
+#workspacesToolbarButtonPanelBox {
+  position: relative;
+}
+
+#workspacesPopupFooter > #workspacesManageWorkspacesButton {
+  position: absolute;
+  top: 36px;
+  right: 8px;
+  height: 28px;
+}
+
+#workspacesPopupSeparator {
+  margin: 8px 0 !important;
+}
