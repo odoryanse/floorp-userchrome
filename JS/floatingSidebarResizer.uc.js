@@ -336,12 +336,19 @@
   }
 
   if (gBrowserInit.delayedStartupFinished) {
+    console.log(`Floating Sidebar Starting`)
     observeBrowser()
   } else {
     let delayedListener = (subject, topic) => {
       if (topic == `browser-delayed-startup-finished` && subject == window) {
+        console.log(`Floating Sidebar Starting`)
         Services.obs.removeObserver(delayedListener, topic)
-        observeBrowser()
+        if (document.querySelector(`#sidebar2-box`)) {
+          startup()
+          console.log(`Floating Sidebar Loaded`)
+        } else {
+          observeBrowser()
+        }
       }
     };
     Services.obs.addObserver(
