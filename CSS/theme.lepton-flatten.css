@@ -49,7 +49,7 @@
   margin-left: 0 !important;
 }
 
-#navigator-toolbox-background {
+#navigator-toolbox {
   --tab-min-height: var(--uc-tab-min-height) !important;
 }
 
@@ -68,6 +68,18 @@
 .tabbrowser-tab[pinned] {
   margin-right: 0 !important;
   padding: 0 !important;
+}
+
+.tabbrowser-tab[pinned] .tab-content {
+  --inline-tab-padding: calc((var(--uc-tab-min-height) - 16px) / 2 + 1px) !important;
+}
+
+.tabbrowser-tab[pinned] .tab-label-container {
+  display: none !important;
+}
+
+.tab-context-line {
+  display: none !important;
 }
 
 .tab-background {
@@ -195,7 +207,7 @@
 #urlbar:hover:not([focused="true"]) > #urlbar-background, 
 #searchbar:hover:not(:focus-within) {
   --toolbar-field-border-color: transparent !important;
-  background: var(--uc-field-hover-background-color) !important;
+  /* background: var(--uc-field-hover-background-color) !important; */
 }
 
 #urlbar[focused="true"]:not([suppress-focus-border]) > #urlbar-background,
@@ -310,6 +322,7 @@
   --panel-border-color: var(--uc-separator-color) !important;
   --menu-padding: 5px !important; /* height 28px */
   margin: var(--uc-panel-shadow-margin) !important;
+  padding: 4px 0 !important;
   color: var(--lwt-text-color) !important;
 }
 
@@ -333,6 +346,7 @@ menu[_moz-menuactive="true"]:not([disabled="true"]),
 
 menuseparator {
   margin: 4px 0 !important;
+  padding: 0 !important;
   border-color: var(--uc-separator-color) !important;
 }
 

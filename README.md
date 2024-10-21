@@ -1,4 +1,4 @@
-Made for Floorp 11.15.0 with Lepton theme and Firefox Color Add-on
+Made for Floorp 11.19.1 with Lepton theme and Firefox Color Add-on
 
 - FLoating Sidebar 2 (requires [MrOtherGuy userchrome.js loader](https://github.com/MrOtherGuy/fx-autoconfig))
 - Rearrange Workspace UI 

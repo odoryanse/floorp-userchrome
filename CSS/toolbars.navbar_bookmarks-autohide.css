@@ -1,4 +1,4 @@
-#navigator-toolbox-background {
+#navigator-toolbox {
   --uc-menubar-autohide-height: 25px;
   --uc-menubar-height: 28px;
   --uc-tabs-height: var(--uc-tab-min-height, 32px);
@@ -7,7 +7,7 @@
   --uc-autohide-toolbar-delay: 300ms;
 }
 
-#main-window[sizemode="normal"] #navigator-toolbox-background {
+#main-window[sizemode="normal"] #navigator-toolbox {
   --uc-tabs-height: calc(var(--uc-tab-min-height, 32px) + 1px);
 }
 
@@ -18,7 +18,7 @@
   background-position: top right;
 }
 
-#main-window[windowtype="navigator:browser"] > body > #navigator-toolbox-background {
+#main-window[windowtype="navigator:browser"] > body > #navigator-toolbox {
   height: auto !important;
 }
 
@@ -34,13 +34,13 @@
   min-height: var(--uc-navbar-height) !important;
   transition: top 136ms ease-in-out var(--uc-autohide-toolbar-delay), opacity 136ms ease-in-out calc(var(--uc-autohide-toolbar-delay) - 40ms) !important;
   background-position: top calc(-1 * (var(--uc-tabs-height) + 1px)) right;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid transparent !important;
 }
 #nav-bar[tabs-hidden="true"] {
   background-position: top right;
 }
 #nav-bar:has(+ #PersonalToolbar[collapsed="true"]) {
-  border-bottom-color: var(--uc-separator-color);
+  border-bottom-color: var(--uc-separator-color) !important;
 }
 #nav-bar:has(#urlbar[breakout-extend="true"]) {
   z-index: 5 !important;
@@ -54,7 +54,7 @@
   min-height: var(--uc-bm-height) !important;
   transition: top 160ms ease-in-out var(--uc-autohide-toolbar-delay), opacity 160ms ease-in-out calc(var(--uc-autohide-toolbar-delay) - 40ms) !important;
   background-position: top calc(-1 * (var(--uc-tabs-height) + 1px) + -1 * (var(--uc-navbar-height))) right;
-  border-bottom: 1px solid var(--uc-separator-color);
+  border-bottom: 1px solid var(--uc-separator-color) !important;
 }
 
 #titlebar,
@@ -80,12 +80,12 @@
 
 /* Keep showing the tabs and bookmarks bar while hovering over the context menu or panel is open */
 /* has() CSS is bugging */
-#mainPopupSet:has(> :is(menupopup:hover, panel[panelopen="true"])) ~ #navigator-toolbox-background #nav-bar {
+#mainPopupSet:has(> :is(menupopup:hover, panel[panelopen="true"])) ~ #navigator-toolbox #nav-bar {
   top: calc(var(--uc-tabs-height) + 1px) !important;
   opacity: 1;
   transition: top 114ms ease-in-out 36ms, opacity 100ms ease-in-out 36ms !important;
 }
-#mainPopupSet:has(> :is(menupopup:hover, panel[panelopen="true"])) ~ #navigator-toolbox-background #PersonalToolbar{
+#mainPopupSet:has(> :is(menupopup:hover, panel[panelopen="true"])) ~ #navigator-toolbox #PersonalToolbar{
   top: calc(var(--uc-tabs-height) + 1px + var(--uc-navbar-height)) !important;
   opacity: 1;
   transition: top 160ms ease-in-out 0ms, opacity 100ms ease-in-out 0ms !important;
